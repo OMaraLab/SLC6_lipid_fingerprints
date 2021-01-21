@@ -8,6 +8,8 @@ The neuronal plasma membrane is based on:
 
 Ingólfsson, H. I.; Carpenter, T. S.; Bhatia, H.; Bremer, P. T.; Marrink, S. J.; Lightstone, F. C. Computational Lipidomics of the Neuronal Plasma Membrane. Biophys. J. 2017, 113 (10), 2271–2280.
 
+Parameters are available in martini.ff/
+
 Scripts to run the analyses to obtain the area per lipid (mapl),
 lipid depletion-enrichment index (mdei),
 and lipid flop-flop (mflipflop) are in the scripts folder.

@@ -1,0 +1,2123 @@
+;;;;;; Martini lipid topology for OIPC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OIPC.itp -alname OIPC -alhead 'C P' -allink 'G G' -altail 'CDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C18:1(9c) oleic acid, and C18:0 palmitic acid
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=C P, allink=G G, altail=CDDC CDCC, alname=OIPC, charge=0.0
+;@RESNTEST OIP==OIPC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 GL2 C1A D2A D3A C4A C1B D2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-D2A D2A-D3A D3A-C4A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OIPC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	OIPC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	OIPC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OIPC 	GL1 	 3 	0 	
+   4 	Na 	 1 	OIPC 	GL2 	 4 	0 	
+   5 	C1 	 1 	OIPC 	C1A 	 5 	0 	
+   6 	C4 	 1 	OIPC 	D2A 	 6 	0 	
+   7 	C4 	 1 	OIPC 	D3A 	 7 	0 	
+   8 	C1 	 1 	OIPC 	C4A 	 8 	0 	
+   9 	C1 	 1 	OIPC 	C1B 	 9 	0 	
+  10 	C3 	 1 	OIPC 	D2B 	10 	0 	
+  11 	C1 	 1 	OIPC 	C3B 	11 	0 	
+  12 	C1 	 1 	OIPC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OPPE, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OPPE.itp -alname OPPE -alhead 'E P' -allink 'G G' -altail 'CCCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C18:1(9c) oleic acid, and C18:0 palmitic acid
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=E P, allink=G G, altail=CCCC CDCC, alname=OPPE, charge=0.0
+;@RESNTEST OPP==OPPE if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 GL2 C1A C2A C3A C4A C1B D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-C2A C2A-C3A C3A-C4A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OPPE          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OPPE 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OPPE 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OPPE 	GL1 	 3 	0 	
+   4 	Na 	 1 	OPPE 	GL2 	 4 	0 	
+   5 	C1 	 1 	OPPE 	C1A 	 5 	0 	
+   6 	C1 	 1 	OPPE 	C2A 	 6 	0 	
+   7 	C1 	 1 	OPPE 	C3A 	 7 	0 	
+   8 	C1 	 1 	OPPE 	C4A 	 8 	0 	
+   9 	C1 	 1 	OPPE 	C1B 	 9 	0 	
+  10 	C3 	 1 	OPPE 	D2B 	10 	0 	
+  11 	C1 	 1 	OPPE 	C3B 	11 	0 	
+  12 	C1 	 1 	OPPE 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OIPE, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OIPE.itp -alname OIPE -alhead 'E P' -allink 'G G' -altail 'CDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C18:1(9c) oleic acid, and C18:2(9c,12c) linoleic acid 
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=E P, allink=G G, altail=CDDC CDCC, alname=OIPE, charge=0.0
+;@RESNTEST OIP==OIPE if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 GL2 C1A D2A D3A C4A C1B D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-D2A D2A-D3A D3A-C4A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OIPE          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OIPE 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OIPE 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OIPE 	GL1 	 3 	0 	
+   4 	Na 	 1 	OIPE 	GL2 	 4 	0 	
+   5 	C1 	 1 	OIPE 	C1A 	 5 	0 	
+   6 	C4 	 1 	OIPE 	D2A 	 6 	0 	
+   7 	C4 	 1 	OIPE 	D3A 	 7 	0 	
+   8 	C1 	 1 	OIPE 	C4A 	 8 	0 	
+   9 	C1 	 1 	OIPE 	C1B 	 9 	0 	
+  10 	C3 	 1 	OIPE 	D2B 	10 	0 	
+  11 	C1 	 1 	OIPE 	C3B 	11 	0 	
+  12 	C1 	 1 	OIPE 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OQPE, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OQPE.itp -alname OQPE -alhead 'E P' -allink 'G G' -altail 'CDDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C16:1(9c) palmitoleic acid, and C20:3(5c,8c,11c) mead acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=E P, allink=G G, altail=CDDDC CDCC, alname=OQPE, charge=0.0
+;@RESNTEST OQP==OQPE if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 GL2 C1A D2A D3A D4A C5A C1B D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-D2A D2A-D3A D3A-D4A D4A-C5A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OQPE          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OQPE 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OQPE 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OQPE 	GL1 	 3 	0 	
+   4 	Na 	 1 	OQPE 	GL2 	 4 	0 	
+   5 	C1 	 1 	OQPE 	C1A 	 5 	0 	
+   6 	C4 	 1 	OQPE 	D2A 	 6 	0 	
+   7 	C4 	 1 	OQPE 	D3A 	 7 	0 	
+   8 	C4 	 1 	OQPE 	D4A 	 8 	0 	
+   9 	C1 	 1 	OQPE 	C5A 	 9 	0 	
+  10 	C1 	 1 	OQPE 	C1B 	10 	0 	
+  11 	C3 	 1 	OQPE 	D2B 	11 	0 	
+  12 	C1 	 1 	OQPE 	C3B 	12 	0 	
+  13 	C1 	 1 	OQPE 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OUPE, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OUPE.itp -alname OUPE -alhead 'E P' -allink 'G G' -altail 'DDDDD CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C22:6(4c,7c,10c,13c,16c,19c) docosahexaenoic acid , and C16:1(9c) palmitoleic acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=E P, allink=G G, altail=DDDDD CDCC, alname=OUPE, charge=0.0
+;@RESNTEST OUP==OUPE if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 GL2 D1A D2A D3A D4A D5A C1B D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-GL2 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-D5A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OUPE          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OUPE 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OUPE 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OUPE 	GL1 	 3 	0 	
+   4 	Na 	 1 	OUPE 	GL2 	 4 	0 	
+   5 	C4 	 1 	OUPE 	D1A 	 5 	0 	
+   6 	C4 	 1 	OUPE 	D2A 	 6 	0 	
+   7 	C4 	 1 	OUPE 	D3A 	 7 	0 	
+   8 	C4 	 1 	OUPE 	D4A 	 8 	0 	
+   9 	C4 	 1 	OUPE 	D5A 	 9 	0 	
+  10 	C1 	 1 	OUPE 	C1B 	10 	0 	
+  11 	C3 	 1 	OUPE 	D2B 	11 	0 	
+  12 	C1 	 1 	OUPE 	C3B 	12 	0 	
+  13 	C1 	 1 	OUPE 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	100.0 	10.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OAPE, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OAPE.itp -alname OAPE -alhead 'E P' -allink 'G G' -altail 'DDDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Phosphosatidylethanolamine (PE) lipid 
+;      C20:4(5c,8c,11c,14c) arachidonic acid, and C20:3(5c,8c,11c) mead acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=E P, allink=G G, altail=DDDDC CDCC, alname=OAPE, charge=0.0
+;@RESNTEST OAP==OAPE if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 GL2 D1A D2A D3A D4A C5A C1B D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-GL2 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-C5A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OAPE          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OAPE 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OAPE 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OAPE 	GL1 	 3 	0 	
+   4 	Na 	 1 	OAPE 	GL2 	 4 	0 	
+   5 	C4 	 1 	OAPE 	D1A 	 5 	0 	
+   6 	C4 	 1 	OAPE 	D2A 	 6 	0 	
+   7 	C4 	 1 	OAPE 	D3A 	 7 	0 	
+   8 	C4 	 1 	OAPE 	D4A 	 8 	0 	
+   9 	C1 	 1 	OAPE 	C5A 	 9 	0 	
+  10 	C1 	 1 	OAPE 	C1B 	10 	0 	
+  11 	C3 	 1 	OAPE 	D2B 	11 	0 	
+  12 	C1 	 1 	OAPE 	C3B 	12 	0 	
+  13 	C1 	 1 	OAPE 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OGPS, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OGPS.itp -alname OGPS -alhead 'S P' -allink 'G G' -altail 'CCDCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model phosphatidylserine (PS) lipid 
+;      C20:1(11c) gondoic acid, C16:1(9c) palmitoleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.17
+;
+;@INSANE alhead=S P, allink=G G, altail=CCDCC CDCC, alname=OGPS, charge=-1.0
+;@RESNTEST OGP==OGPS if: atoms[0]==CNO
+;@BEADS CNO PO4 GL1 GL2 C1A C2A D3A C4A C5A C1B D2B C3B C4B 
+;@BONDS CNO-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-C2A C2A-D3A D3A-C4A C4A-C5A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OGPS          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	P5 	 1 	OGPS 	CNO 	 1 	0.0 	
+   2 	Qa 	 1 	OGPS 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OGPS 	GL1 	 3 	0 	
+   4 	Na 	 1 	OGPS 	GL2 	 4 	0 	
+   5 	C1 	 1 	OGPS 	C1A 	 5 	0 	
+   6 	C1 	 1 	OGPS 	C2A 	 6 	0 	
+   7 	C3 	 1 	OGPS 	D3A 	 7 	0 	
+   8 	C1 	 1 	OGPS 	C4A 	 8 	0 	
+   9 	C1 	 1 	OGPS 	C5A 	 9 	0 	
+  10 	C1 	 1 	OGPS 	C1B 	10 	0 	
+  11 	C3 	 1 	OGPS 	D2B 	11 	0 	
+  12 	C1 	 1 	OGPS 	C3B 	12 	0 	
+  13 	C1 	 1 	OGPS 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   7  8  9 	2 	180.0 	25.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PBSM, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PBSM.itp -alname PBSM -alhead 'C P' -allink 'A A' -altail 'TCC CCCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model sphingomyelin (SM) lipid 
+;      C16:0 palmitic acid , C20:0 arachidoyl   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=A A, altail=TCC CCCCC, alname=PBSM, charge=0.0
+;@RESNTEST PBS==PBSM if: atoms[0]==NC3
+;@BEADS NC3 PO4 AM1 AM2 T1A C2A C3A C1B C2B C3B C4B C5B 
+;@BONDS NC3-PO4 PO4-AM1 AM1-AM2 AM1-T1A T1A-C2A C2A-C3A AM2-C1B C1B-C2B C2B-C3B C3B-C4B C4B-C5B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PBSM          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	PBSM 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	PBSM 	PO4 	 2 	-1.0 	
+   3 	P1 	 1 	PBSM 	AM1 	 3 	0 	
+   4 	P5 	 1 	PBSM 	AM2 	 4 	0 	
+   5 	C3 	 1 	PBSM 	T1A 	 5 	0 	
+   6 	C1 	 1 	PBSM 	C2A 	 6 	0 	
+   7 	C1 	 1 	PBSM 	C3A 	 7 	0 	
+   8 	C1 	 1 	PBSM 	C1B 	 8 	0 	
+   9 	C1 	 1 	PBSM 	C2B 	 9 	0 	
+  10 	C1 	 1 	PBSM 	C3B 	10 	0 	
+  11 	C1 	 1 	PBSM 	C4B 	11 	0 	
+  12 	C1 	 1 	PBSM 	C5B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   4  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	45.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   4  8  9 	2 	180.0 	25.0 	
+   8  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PXSM, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PXSM.itp -alname PXSM -alhead 'C P' -allink 'A A' -altail 'TCC CCCCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model sphingomyelin (SM) lipid 
+;      C16:0 palmitic acid , C24:0 lignoceroyl   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=A A, altail=TCC CCCCCC, alname=PXSM, charge=0.0
+;@RESNTEST PXS==PXSM if: atoms[0]==NC3
+;@BEADS NC3 PO4 AM1 AM2 T1A C2A C3A C1B C2B C3B C4B C5B C6B 
+;@BONDS NC3-PO4 PO4-AM1 AM1-AM2 AM1-T1A T1A-C2A C2A-C3A AM2-C1B C1B-C2B C2B-C3B C3B-C4B C4B-C5B C5B-C6B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PXSM          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	PXSM 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	PXSM 	PO4 	 2 	-1.0 	
+   3 	P1 	 1 	PXSM 	AM1 	 3 	0 	
+   4 	P5 	 1 	PXSM 	AM2 	 4 	0 	
+   5 	C3 	 1 	PXSM 	T1A 	 5 	0 	
+   6 	C1 	 1 	PXSM 	C2A 	 6 	0 	
+   7 	C1 	 1 	PXSM 	C3A 	 7 	0 	
+   8 	C1 	 1 	PXSM 	C1B 	 8 	0 	
+   9 	C1 	 1 	PXSM 	C2B 	 9 	0 	
+  10 	C1 	 1 	PXSM 	C3B 	10 	0 	
+  11 	C1 	 1 	PXSM 	C4B 	11 	0 	
+  12 	C1 	 1 	PXSM 	C5B 	12 	0 	
+  13 	C1 	 1 	PXSM 	C6B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   4  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	45.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   4  8  9 	2 	180.0 	25.0 	
+   8  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for DOPI, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o DOPI.itp -alname DOPI -alhead 'PI' -allink 'G G' -altail 'CDCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model phosphatidylinositol (PI) lipid 
+;      C16:1(9c) palmitoleic acid, C16:1(9c) palmitoleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=PI, allink=G G, altail=CDCC CDCC, alname=DOPI, charge=-1.0
+;@RESNTEST DOP==DOPI if: atoms[0]==C1  and atoms[4]==GL1
+;@BEADS C1 C2 C3 PO4 GL1 GL2 C1A D2A C3A C4A C1B D2B C3B C4B 
+;@BONDS C1-C2 C1-C3 C2-C3 C1-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-D2A D2A-C3A C3A-C4A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  DOPI          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	P1 	 1 	DOPI 	C1  	 1 	0 	
+   2 	P4 	 1 	DOPI 	C2  	 2 	0 	
+   3 	P4 	 1 	DOPI 	C3  	 3 	0 	
+   4 	Qa 	 1 	DOPI 	PO4 	 4 	-1.0 	; Name changed from CP to PO4
+; Tail part (uses standar Martini v2.0 tail rules)
+   5 	Na 	 1 	DOPI 	GL1 	 5 	0 	
+   6 	Na 	 1 	DOPI 	GL2 	 6 	0 	
+   7 	C1 	 1 	DOPI 	C1A 	 7 	0 	
+   8 	C3 	 1 	DOPI 	D2A 	 8 	0 	
+   9 	C1 	 1 	DOPI 	C3A 	 9 	0 	
+  10 	C1 	 1 	DOPI 	C4A 	10 	0 	
+  11 	C1 	 1 	DOPI 	C1B 	11 	0 	
+  12 	C3 	 1 	DOPI 	D2B 	12 	0 	
+  13 	C1 	 1 	DOPI 	C3B 	13 	0 	
+  14 	C1 	 1 	DOPI 	C4B 	14 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+#ifdef FLEXIBLE
+; Using bonds not constraints
+   1  2 	1 	0.40 	30000 	
+   1  3 	1 	0.40 	30000 	
+   2  3 	1 	0.40 	30000 	
+#endif
+   1  4 	1 	0.35 	1250 	
+   4  5 	1 	0.47 	1250 	
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  6 	1 	0.37 	1250 	
+   5  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+   6 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+  13 14 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   3  1  4 	2 	133.0 	100.0 	; Not used in the other PIPs
+   2  1  4 	2 	100.0 	70.0 	; Not used in the other PIPs
+; Orient Head
+   1  4  5 	2 	140.0 	30.0 	; link to lipid
+   4  5  6 	2 	120.0 	25.0 	; These are part of the default lipids rules
+   4  5  7 	2 	180.0 	25.0 	; These are part of the default lipids rules
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  7  8 	2 	180.0 	25.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   8  9 10 	2 	180.0 	25.0 	
+   6 11 12 	2 	180.0 	25.0 	
+  11 12 13 	2 	120.0 	45.0 	
+  12 13 14 	2 	180.0 	25.0 	
+
+[dihedrals]
+;  i  j  k  l 	funct 	angle 	force.c.
+; 3  1  4  5  1  -30.0  5.0  1 ; Removed as it was unstable - WARNING has not been tested
+
+[constraints]
+;  i  j  k 	funct 	length
+#ifndef FLEXIBLE
+; Using constraints not bonds
+   1  2 	1 	0.40 	
+   1  3 	1 	0.40 	
+   2  3 	1 	0.40 	
+#endif
+
+;;;;;; Martini lipid topology for PEPI, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PEPI.itp -alname PEPI -alhead 'PI' -allink 'G G' -altail 'CCDDC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model phosphatidylinositol (PI) lipid 
+;      C16:0 palmitic acid , C20:2(11c,14c) eicosadienoic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=PI, allink=G G, altail=CCDDC CCCC, alname=PEPI, charge=-1.0
+;@RESNTEST PEP==PEPI if: atoms[0]==C1  and atoms[4]==GL1
+;@BEADS C1 C2 C3 PO4 GL1 GL2 C1A C2A D3A D4A C5A C1B C2B C3B C4B 
+;@BONDS C1-C2 C1-C3 C2-C3 C1-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-C2A C2A-D3A D3A-D4A D4A-C5A GL2-C1B C1B-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PEPI          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	P1 	 1 	PEPI 	C1  	 1 	0 	
+   2 	P4 	 1 	PEPI 	C2  	 2 	0 	
+   3 	P4 	 1 	PEPI 	C3  	 3 	0 	
+   4 	Qa 	 1 	PEPI 	PO4 	 4 	-1.0 	; Name changed from CP to PO4
+; Tail part (uses standar Martini v2.0 tail rules)
+   5 	Na 	 1 	PEPI 	GL1 	 5 	0 	
+   6 	Na 	 1 	PEPI 	GL2 	 6 	0 	
+   7 	C1 	 1 	PEPI 	C1A 	 7 	0 	
+   8 	C1 	 1 	PEPI 	C2A 	 8 	0 	
+   9 	C4 	 1 	PEPI 	D3A 	 9 	0 	
+  10 	C4 	 1 	PEPI 	D4A 	10 	0 	
+  11 	C1 	 1 	PEPI 	C5A 	11 	0 	
+  12 	C1 	 1 	PEPI 	C1B 	12 	0 	
+  13 	C1 	 1 	PEPI 	C2B 	13 	0 	
+  14 	C1 	 1 	PEPI 	C3B 	14 	0 	
+  15 	C1 	 1 	PEPI 	C4B 	15 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+#ifdef FLEXIBLE
+; Using bonds not constraints
+   1  2 	1 	0.40 	30000 	
+   1  3 	1 	0.40 	30000 	
+   2  3 	1 	0.40 	30000 	
+#endif
+   1  4 	1 	0.35 	1250 	
+   4  5 	1 	0.47 	1250 	
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  6 	1 	0.37 	1250 	
+   5  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+   6 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+  13 14 	1 	0.47 	1250 	
+  14 15 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   3  1  4 	2 	133.0 	100.0 	; Not used in the other PIPs
+   2  1  4 	2 	100.0 	70.0 	; Not used in the other PIPs
+; Orient Head
+   1  4  5 	2 	140.0 	30.0 	; link to lipid
+   4  5  6 	2 	120.0 	25.0 	; These are part of the default lipids rules
+   4  5  7 	2 	180.0 	25.0 	; These are part of the default lipids rules
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  7  8 	2 	180.0 	25.0 	
+   7  8  9 	2 	180.0 	25.0 	
+   8  9 10 	2 	100.0 	10.0 	
+   9 10 11 	2 	120.0 	45.0 	
+   6 12 13 	2 	180.0 	25.0 	
+  12 13 14 	2 	180.0 	25.0 	
+  13 14 15 	2 	180.0 	25.0 	
+
+[dihedrals]
+;  i  j  k  l 	funct 	angle 	force.c.
+; 3  1  4  5  1  -30.0  5.0  1 ; Removed as it was unstable - WARNING has not been tested
+
+[constraints]
+;  i  j  k 	funct 	length
+#ifndef FLEXIBLE
+; Using constraints not bonds
+   1  2 	1 	0.40 	
+   1  3 	1 	0.40 	
+   2  3 	1 	0.40 	
+#endif
+
+;;;;;; Martini lipid topology for DOMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o DOMC.itp -alname DOMC -alhead 'C P' -allink 'G G' -altail 'CDCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C18:1(9c) oleic acid   , C18:1(9c) oleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CDCC CDCC, alname=DOMC, charge=0.0
+;@RESNTEST DOM==DOMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A D2A C3A C4A C3 D2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-C3A C3A-C4A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  DOMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	DOMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	DOMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	DOMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	DOMC 	N0 	 4 	0 	
+   5 	C1 	 1 	DOMC 	C1A 	 5 	0 	
+   6 	C3 	 1 	DOMC 	D2A 	 6 	0 	
+   7 	C1 	 1 	DOMC 	C3A 	 7 	0 	
+   8 	C1 	 1 	DOMC 	C4A 	 8 	0 	
+   9 	C1 	 1 	DOMC 	C3 	 9 	0 	
+  10 	C3 	 1 	DOMC 	D2B 	10 	0 	
+  11 	C1 	 1 	DOMC 	C3B 	11 	0 	
+  12 	C1 	 1 	DOMC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	120.0 	45.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for DOME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o DOME.itp -alname DOME -alhead 'E P' -allink 'G G' -altail 'CDCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C16:0 palmitic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=CDCC CDCC, alname=DOME, charge=0.0
+;@RESNTEST DOM==DOME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 C1A D2A C3A C4A C3 D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-C3A C3A-C4A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  DOME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	DOME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	DOME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	DOME 	GL1 	 3 	0 	
+   4 	Na 	 1 	DOME 	N0 	 4 	0 	
+   5 	C1 	 1 	DOME 	C1A 	 5 	0 	
+   6 	C3 	 1 	DOME 	D2A 	 6 	0 	
+   7 	C1 	 1 	DOME 	C3A 	 7 	0 	
+   8 	C1 	 1 	DOME 	C4A 	 8 	0 	
+   9 	C1 	 1 	DOME 	C3 	 9 	0 	
+  10 	C3 	 1 	DOME 	D2B 	10 	0 	
+  11 	C1 	 1 	DOME 	C3B 	11 	0 	
+  12 	C1 	 1 	DOME 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	120.0 	45.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OEMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OEMC.itp -alname OEMC -alhead 'C P' -allink 'G G' -altail 'CCDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C18:2(9c,12c) linoleic acid, C18:1(9c) oleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CCDDC CDCC, alname=OEMC, charge=0.0
+;@RESNTEST OEM==OEMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A C2A D3A D4A C5A C3 D2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-C2A C2A-D3A D3A-D4A D4A-C5A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OEMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	OEMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	OEMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OEMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	OEMC 	N0 	 4 	0 	
+   5 	C1 	 1 	OEMC 	C1A 	 5 	0 	
+   6 	C1 	 1 	OEMC 	C2A 	 6 	0 	
+   7 	C4 	 1 	OEMC 	D3A 	 7 	0 	
+   8 	C4 	 1 	OEMC 	D4A 	 8 	0 	
+   9 	C1 	 1 	OEMC 	C5A 	 9 	0 	
+  10 	C1 	 1 	OEMC 	C3 	10 	0 	
+  11 	C3 	 1 	OEMC 	D2B 	11 	0 	
+  12 	C1 	 1 	OEMC 	C3B 	12 	0 	
+  13 	C1 	 1 	OEMC 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OIMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OIMC.itp -alname OIMC -alhead 'C P' -allink 'G G' -altail 'CDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C18:2(9c,12c) linoleic acid, C18:1(9c) oleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CDDC CDCC, alname=OIMC, charge=0.0
+;@RESNTEST OIM==OIMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A D2A D3A C4A C3 D2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-D3A D3A-C4A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OIMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	OIMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	OIMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OIMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	OIMC 	N0 	 4 	0 	
+   5 	C1 	 1 	OIMC 	C1A 	 5 	0 	
+   6 	C4 	 1 	OIMC 	D2A 	 6 	0 	
+   7 	C4 	 1 	OIMC 	D3A 	 7 	0 	
+   8 	C1 	 1 	OIMC 	C4A 	 8 	0 	
+   9 	C1 	 1 	OIMC 	C3 	 9 	0 	
+  10 	C3 	 1 	OIMC 	D2B 	10 	0 	
+  11 	C1 	 1 	OIMC 	C3B 	11 	0 	
+  12 	C1 	 1 	OIMC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for IQME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o IQME.itp -alname IQME -alhead 'E P' -allink 'G G' -altail 'CDDDC CDDC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:2(9c,12c) linoleic acid, C20:3(5c,8c,11c) mead acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=CDDDC CDDC, alname=IQME, charge=0.0
+;@RESNTEST IQM==IQME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 C1A D2A D3A D4A C5A C3 D2B D3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-D3A D3A-D4A D4A-C5A N0-C3 C3-D2B D2B-D3B D3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  IQME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	IQME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	IQME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	IQME 	GL1 	 3 	0 	
+   4 	Na 	 1 	IQME 	N0 	 4 	0 	
+   5 	C1 	 1 	IQME 	C1A 	 5 	0 	
+   6 	C4 	 1 	IQME 	D2A 	 6 	0 	
+   7 	C4 	 1 	IQME 	D3A 	 7 	0 	
+   8 	C4 	 1 	IQME 	D4A 	 8 	0 	
+   9 	C1 	 1 	IQME 	C5A 	 9 	0 	
+  10 	C1 	 1 	IQME 	C3 	10 	0 	
+  11 	C4 	 1 	IQME 	D2B 	11 	0 	
+  12 	C4 	 1 	IQME 	D3B 	12 	0 	
+  13 	C1 	 1 	IQME 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	100.0 	10.0 	
+  11 12 13 	2 	120.0 	45.0 	
+
+;;;;;; Martini lipid topology for OIME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OIME.itp -alname OIME -alhead 'E P' -allink 'G G' -altail 'CDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C18:2(9c,12c) linoleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=CDDC CDCC, alname=OIME, charge=0.0
+;@RESNTEST OIM==OIME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 C1A D2A D3A C4A C3 D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-D3A D3A-C4A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OIME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OIME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OIME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OIME 	GL1 	 3 	0 	
+   4 	Na 	 1 	OIME 	N0 	 4 	0 	
+   5 	C1 	 1 	OIME 	C1A 	 5 	0 	
+   6 	C4 	 1 	OIME 	D2A 	 6 	0 	
+   7 	C4 	 1 	OIME 	D3A 	 7 	0 	
+   8 	C1 	 1 	OIME 	C4A 	 8 	0 	
+   9 	C1 	 1 	OIME 	C3 	 9 	0 	
+  10 	C3 	 1 	OIME 	D2B 	10 	0 	
+  11 	C1 	 1 	OIME 	C3B 	11 	0 	
+  12 	C1 	 1 	OIME 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	120.0 	45.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PIMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PIMC.itp -alname PIMC -alhead 'C P' -allink 'G G' -altail 'CDDC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C18:2(9c,12c) linoleic acid, C18:1(9c) oleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CDDC CCCC, alname=PIMC, charge=0.0
+;@RESNTEST PIM==PIMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A D2A D3A C4A C3 C2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-D3A D3A-C4A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PIMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	PIMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	PIMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	PIMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	PIMC 	N0 	 4 	0 	
+   5 	C1 	 1 	PIMC 	C1A 	 5 	0 	
+   6 	C4 	 1 	PIMC 	D2A 	 6 	0 	
+   7 	C4 	 1 	PIMC 	D3A 	 7 	0 	
+   8 	C1 	 1 	PIMC 	C4A 	 8 	0 	
+   9 	C1 	 1 	PIMC 	C3 	 9 	0 	
+  10 	C1 	 1 	PIMC 	C2B 	10 	0 	
+  11 	C1 	 1 	PIMC 	C3B 	11 	0 	
+  12 	C1 	 1 	PIMC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	120.0 	45.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for POMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o POMC.itp -alname POMC -alhead 'C P' -allink 'G G' -altail 'CDCC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C16:1(9c) palmitoleic acid, C18:1(9c) oleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CDCC CCCC, alname=POMC, charge=0.0
+;@RESNTEST POM==POMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A D2A C3A C4A C3 C2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-C3A C3A-C4A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  POMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	POMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	POMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	POMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	POMC 	N0 	 4 	0 	
+   5 	C1 	 1 	POMC 	C1A 	 5 	0 	
+   6 	C3 	 1 	POMC 	D2A 	 6 	0 	
+   7 	C1 	 1 	POMC 	C3A 	 7 	0 	
+   8 	C1 	 1 	POMC 	C4A 	 8 	0 	
+   9 	C1 	 1 	POMC 	C3 	 9 	0 	
+  10 	C1 	 1 	POMC 	C2B 	10 	0 	
+  11 	C1 	 1 	POMC 	C3B 	11 	0 	
+  12 	C1 	 1 	POMC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	120.0 	45.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OQME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OQME.itp -alname OQME -alhead 'E P' -allink 'G G' -altail 'CDDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C20:3(5c,8c,11c) mead acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=CDDDC CDCC, alname=OQME, charge=0.0
+;@RESNTEST OQM==OQME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 C1A D2A D3A D4A C5A C3 D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-D3A D3A-D4A D4A-C5A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OQME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OQME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OQME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OQME 	GL1 	 3 	0 	
+   4 	Na 	 1 	OQME 	N0 	 4 	0 	
+   5 	C1 	 1 	OQME 	C1A 	 5 	0 	
+   6 	C4 	 1 	OQME 	D2A 	 6 	0 	
+   7 	C4 	 1 	OQME 	D3A 	 7 	0 	
+   8 	C4 	 1 	OQME 	D4A 	 8 	0 	
+   9 	C1 	 1 	OQME 	C5A 	 9 	0 	
+  10 	C1 	 1 	OQME 	C3 	10 	0 	
+  11 	C3 	 1 	OQME 	D2B 	11 	0 	
+  12 	C1 	 1 	OQME 	C3B 	12 	0 	
+  13 	C1 	 1 	OQME 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for POME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o POME.itp -alname POME -alhead 'E P' -allink 'G G' -altail 'CDCC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C16:0 palmitic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=CDCC CCCC, alname=POME, charge=0.0
+;@RESNTEST POM==POME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 C1A D2A C3A C4A C3 C2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-D2A D2A-C3A C3A-C4A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  POME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	POME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	POME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	POME 	GL1 	 3 	0 	
+   4 	Na 	 1 	POME 	N0 	 4 	0 	
+   5 	C1 	 1 	POME 	C1A 	 5 	0 	
+   6 	C3 	 1 	POME 	D2A 	 6 	0 	
+   7 	C1 	 1 	POME 	C3A 	 7 	0 	
+   8 	C1 	 1 	POME 	C4A 	 8 	0 	
+   9 	C1 	 1 	POME 	C3 	 9 	0 	
+  10 	C1 	 1 	POME 	C2B 	10 	0 	
+  11 	C1 	 1 	POME 	C3B 	11 	0 	
+  12 	C1 	 1 	POME 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	120.0 	45.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OUME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OUME.itp -alname OUME -alhead 'E P' -allink 'G G' -altail 'DDDDD CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C22:6(4c,7c,10c,13c,16c,19c) docosahexaenoic acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=E P, allink=G G, altail=DDDDD CDCC, alname=OUME, charge=0.0
+;@RESNTEST OUM==OUME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 D1A D2A D3A D4A D5A C3 D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-D5A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OUME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OUME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OUME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OUME 	GL1 	 3 	0 	
+   4 	Na 	 1 	OUME 	N0 	 4 	0 	
+   5 	C4 	 1 	OUME 	D1A 	 5 	0 	
+   6 	C4 	 1 	OUME 	D2A 	 6 	0 	
+   7 	C4 	 1 	OUME 	D3A 	 7 	0 	
+   8 	C4 	 1 	OUME 	D4A 	 8 	0 	
+   9 	C4 	 1 	OUME 	D5A 	 9 	0 	
+  10 	C1 	 1 	OUME 	C3 	10 	0 	
+  11 	C3 	 1 	OUME 	D2B 	11 	0 	
+  12 	C1 	 1 	OUME 	C3B 	12 	0 	
+  13 	C1 	 1 	OUME 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	100.0 	10.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PAMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PAMC.itp -alname PAMC -alhead 'C P' -allink 'G G' -altail 'DDDDC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C20:4(5c,8c,11c,14c) arachidonic acid, C16:0 palmitic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=DDDDC CCCC, alname=PAMC, charge=0.0
+;@RESNTEST PAM==PAMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 D1A D2A D3A D4A C5A C3 C2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-C5A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PAMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	PAMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	PAMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	PAMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	PAMC 	N0 	 4 	0 	
+   5 	C4 	 1 	PAMC 	D1A 	 5 	0 	
+   6 	C4 	 1 	PAMC 	D2A 	 6 	0 	
+   7 	C4 	 1 	PAMC 	D3A 	 7 	0 	
+   8 	C4 	 1 	PAMC 	D4A 	 8 	0 	
+   9 	C1 	 1 	PAMC 	C5A 	 9 	0 	
+  10 	C1 	 1 	PAMC 	C3 	10 	0 	
+  11 	C1 	 1 	PAMC 	C2B 	11 	0 	
+  12 	C1 	 1 	PAMC 	C3B 	12 	0 	
+  13 	C1 	 1 	PAMC 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PUMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PUMC.itp -alname PUMC -alhead 'C P' -allink 'G G' -altail 'DDDDD CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C22:6(4c,7c,10c,13c,16c,19c) docosahexaenoic acid, C16:0 palmitic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=DDDDD CCCC, alname=PUMC, charge=0.0
+;@RESNTEST PUM==PUMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 D1A D2A D3A D4A D5A C3 C2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-D5A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PUMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	PUMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	PUMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	PUMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	PUMC 	N0 	 4 	0 	
+   5 	C4 	 1 	PUMC 	D1A 	 5 	0 	
+   6 	C4 	 1 	PUMC 	D2A 	 6 	0 	
+   7 	C4 	 1 	PUMC 	D3A 	 7 	0 	
+   8 	C4 	 1 	PUMC 	D4A 	 8 	0 	
+   9 	C4 	 1 	PUMC 	D5A 	 9 	0 	
+  10 	C1 	 1 	PUMC 	C3 	10 	0 	
+  11 	C1 	 1 	PUMC 	C2B 	11 	0 	
+  12 	C1 	 1 	PUMC 	C3B 	12 	0 	
+  13 	C1 	 1 	PUMC 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	100.0 	10.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for DPMC, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o DPMC.itp -alname DPMC -alhead 'C P' -allink 'G G' -altail 'CCCC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylcholines (MC) lipid 
+;      C16:1(9c) palmitoleic acid,C16:1(9c) palmitoleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.18
+;
+;@INSANE alhead=C P, allink=G G, altail=CCCC CCCC, alname=DPMC, charge=0.0
+;@RESNTEST DPM==DPMC if: atoms[0]==NC3
+;@BEADS NC3 PO4 GL1 N0 C1A C2A C3A C4A C3 C2B C3B C4B 
+;@BONDS NC3-PO4 PO4-GL1 GL1-N0 GL1-C1A C1A-C2A C2A-C3A C3A-C4A N0-C3 C3-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  DPMC          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Q0 	 1 	DPMC 	NC3 	 1 	1.0 	
+   2 	Qa 	 1 	DPMC 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	DPMC 	GL1 	 3 	0 	
+   4 	Na 	 1 	DPMC 	N0 	 4 	0 	
+   5 	C1 	 1 	DPMC 	C1A 	 5 	0 	
+   6 	C1 	 1 	DPMC 	C2A 	 6 	0 	
+   7 	C1 	 1 	DPMC 	C3A 	 7 	0 	
+   8 	C1 	 1 	DPMC 	C4A 	 8 	0 	
+   9 	C1 	 1 	DPMC 	C3 	 9 	0 	
+  10 	C1 	 1 	DPMC 	C2B 	10 	0 	
+  11 	C1 	 1 	DPMC 	C3B 	11 	0 	
+  12 	C1 	 1 	DPMC 	C4B 	12 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   4  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	180.0 	25.0 	
+   5  6  7 	2 	180.0 	25.0 	
+   6  7  8 	2 	180.0 	25.0 	
+   4  9 10 	2 	180.0 	25.0 	
+   9 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for OAME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o OAME.itp -alname OAME -alhead 'E P' -allink 'G G' -altail 'DDDDC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:1(9c) oleic acid, C20:4(5c,8c,11c,14c) arachidonic acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.19
+;
+;@INSANE alhead=E P, allink=G G, altail=DDDDC CDCC, alname=OAME, charge=0.0
+;@RESNTEST OAM==OAME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 D1A D2A D3A D4A C5A C3 D2B C3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-C5A N0-C3 C3-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  OAME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	OAME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	OAME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	OAME 	GL1 	 3 	0 	
+   4 	Na 	 1 	OAME 	N0 	 4 	0 	
+   5 	C4 	 1 	OAME 	D1A 	 5 	0 	
+   6 	C4 	 1 	OAME 	D2A 	 6 	0 	
+   7 	C4 	 1 	OAME 	D3A 	 7 	0 	
+   8 	C4 	 1 	OAME 	D4A 	 8 	0 	
+   9 	C1 	 1 	OAME 	C5A 	 9 	0 	
+  10 	C1 	 1 	OAME 	C3 	10 	0 	
+  11 	C3 	 1 	OAME 	D2B 	11 	0 	
+  12 	C1 	 1 	OAME 	C3B 	12 	0 	
+  13 	C1 	 1 	OAME 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	120.0 	45.0 	
+  11 12 13 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for IAME, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o IAME.itp -alname IAME -alhead 'E P' -allink 'G G' -altail 'DDDDC CDDC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model Plasmenylethalomines (ME) lipid 
+;       C18:2(9c,12c) linoleic acid, C20:4(5c,8c,11c,14c) arachidonic acid  
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.19
+;
+;@INSANE alhead=E P, allink=G G, altail=DDDDC CDDC, alname=IAME, charge=0.0
+;@RESNTEST IAM==IAME if: atoms[0]==NH3
+;@BEADS NH3 PO4 GL1 N0 D1A D2A D3A D4A C5A C3 D2B D3B C4B 
+;@BONDS NH3-PO4 PO4-GL1 GL1-N0 GL1-D1A D1A-D2A D2A-D3A D3A-D4A D4A-C5A N0-C3 C3-D2B D2B-D3B D3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  IAME          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	Qd 	 1 	IAME 	NH3 	 1 	1.0 	
+   2 	Qa 	 1 	IAME 	PO4 	 2 	-1.0 	
+   3 	Na 	 1 	IAME 	GL1 	 3 	0 	
+   4 	Na 	 1 	IAME 	N0 	 4 	0 	
+   5 	C4 	 1 	IAME 	D1A 	 5 	0 	
+   6 	C4 	 1 	IAME 	D2A 	 6 	0 	
+   7 	C4 	 1 	IAME 	D3A 	 7 	0 	
+   8 	C4 	 1 	IAME 	D4A 	 8 	0 	
+   9 	C1 	 1 	IAME 	C5A 	 9 	0 	
+  10 	C1 	 1 	IAME 	C3 	10 	0 	
+  11 	C4 	 1 	IAME 	D2B 	11 	0 	
+  12 	C4 	 1 	IAME 	D3B 	12 	0 	
+  13 	C1 	 1 	IAME 	C4B 	13 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.47 	1250 	
+   2  3 	1 	0.47 	1250 	
+   3  4 	1 	0.37 	1250 	
+   3  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   6  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   4 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+  11 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   2  3  4 	2 	120.0 	25.0 	
+   2  3  5 	2 	180.0 	25.0 	
+   3  5  6 	2 	100.0 	10.0 	
+   5  6  7 	2 	100.0 	10.0 	
+   6  7  8 	2 	100.0 	10.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   4 10 11 	2 	180.0 	25.0 	
+  10 11 12 	2 	100.0 	10.0 	
+  11 12 13 	2 	120.0 	45.0 	
+
+;;;;;; Martini lipid topology for DODG, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o DODG.itp -alname DODG -alhead '' -allink 'G G' -altail 'CDCC CDCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model diacylglycerol (DG) lipid 
+;      C16:1(9c) palmitoleic acid,C16:1(9c) palmitoleic acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.20
+;
+;@INSANE alhead=, allink=G G, altail=CDCC CDCC, alname=DODG, charge=0
+;@RESNTEST DOD==DODG if: atoms[0]==GL1
+;@BEADS GL1 GL2 C1A D2A C3A C4A C1B D2B C3B C4B 
+;@BONDS GL1-GL2 GL1-C1A C1A-D2A D2A-C3A C3A-C4A GL2-C1B C1B-D2B D2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  DODG          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	P1 	 1 	DODG 	GL1 	 1 	0 	; bead type changed to P1 to account for the added OH group (mod. 2016.09.27)
+   2 	Na 	 1 	DODG 	GL2 	 2 	0 	
+   3 	C1 	 1 	DODG 	C1A 	 3 	0 	
+   4 	C3 	 1 	DODG 	D2A 	 4 	0 	
+   5 	C1 	 1 	DODG 	C3A 	 5 	0 	
+   6 	C1 	 1 	DODG 	C4A 	 6 	0 	
+   7 	C1 	 1 	DODG 	C1B 	 7 	0 	
+   8 	C3 	 1 	DODG 	D2B 	 8 	0 	
+   9 	C1 	 1 	DODG 	C3B 	 9 	0 	
+  10 	C1 	 1 	DODG 	C4B 	10 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+   1  2 	1 	0.37 	1250 	
+   1  3 	1 	0.47 	1250 	
+   3  4 	1 	0.47 	1250 	
+   4  5 	1 	0.47 	1250 	
+   5  6 	1 	0.47 	1250 	
+   2  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   1  3  4 	2 	180.0 	25.0 	
+   3  4  5 	2 	120.0 	45.0 	
+   4  5  6 	2 	180.0 	25.0 	
+   2  7  8 	2 	180.0 	25.0 	
+   7  8  9 	2 	120.0 	45.0 	
+   8  9 10 	2 	180.0 	25.0 	
+
+;;;;;; Martini lipid topology for PQPI, generated using:
+; The Martini lipid itp generator version 0.6  Args are: -o PQPI.itp -alname PQPI -alhead 'PI' -allink 'G G' -altail 'CDDDC CCCC'
+; WARNING: Lipids topology was generated following the Martini 2.0 guidelines but this specific lipid type might
+;          not have been tested and should therefore be used with care. 
+;
+; Description:
+;   A general model phosphatidylinositol (PI) lipid 
+;      C16:0 palmitic acid , C20:3(5c,8c,11c) mead acid   
+; Parameterization:
+;   This topology follows the standard Martini 2.0 lipid definitions and building block rules.
+; Reference(s): 
+;   S.J. Marrink, A.H. de Vries, A.E. Mark. Coarse grained model for semi-quantitative lipid simulations. JPC-B, 108:750-760, 
+;   2004. doi:10.1021/jp036508g 
+;   S.J. Marrink, H.J. Risselada, S. Yefimov, D.P. Tieleman, A.H. de Vries. The MARTINI force field: coarse grained model for 
+;   biomolecular simulations. JPC-B, 111:7812-7824, 2007. doi:10.1021/jp071097f 
+;   T.A. Wassenaar, H.I. Ingolfsson, R.A. Bockmann, D.P. Tieleman, S.J. Marrink. Computational lipidomics with insane: a versatile 
+;   tool for generating custom membranes for molecular simulations. JCTC, 150410125128004, 2015. doi:10.1021/acs.jctc.5b00209
+; Created: 2020.04.22
+;
+;@INSANE alhead=PI, allink=G G, altail=CDDDC CCCC, alname=PQPI, charge=-1.0
+;@RESNTEST PQP==PQPI if: atoms[0]==C1  and atoms[4]==GL1
+;@BEADS C1 C2 C3 PO4 GL1 GL2 C1A D2A D3A D4A C5A C1B C2B C3B C4B 
+;@BONDS C1-C2 C1-C3 C2-C3 C1-PO4 PO4-GL1 GL1-GL2 GL1-C1A C1A-D2A D2A-D3A D3A-D4A D4A-C5A GL2-C1B C1B-C2B C2B-C3B C3B-C4B 
+;
+
+[moleculetype]
+; molname      nrexcl
+  PQPI          1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	P1 	 1 	PQPI 	C1  	 1 	0 	
+   2 	P4 	 1 	PQPI 	C2  	 2 	0 	
+   3 	P4 	 1 	PQPI 	C3  	 3 	0 	
+   4 	Qa 	 1 	PQPI 	PO4 	 4 	-1.0 	; Name changed from CP to PO4
+; Tail part (uses standar Martini v2.0 tail rules)
+   5 	Na 	 1 	PQPI 	GL1 	 5 	0 	
+   6 	Na 	 1 	PQPI 	GL2 	 6 	0 	
+   7 	C1 	 1 	PQPI 	C1A 	 7 	0 	
+   8 	C4 	 1 	PQPI 	D2A 	 8 	0 	
+   9 	C4 	 1 	PQPI 	D3A 	 9 	0 	
+  10 	C4 	 1 	PQPI 	D4A 	10 	0 	
+  11 	C1 	 1 	PQPI 	C5A 	11 	0 	
+  12 	C1 	 1 	PQPI 	C1B 	12 	0 	
+  13 	C1 	 1 	PQPI 	C2B 	13 	0 	
+  14 	C1 	 1 	PQPI 	C3B 	14 	0 	
+  15 	C1 	 1 	PQPI 	C4B 	15 	0 	
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+#ifdef FLEXIBLE
+; Using bonds not constraints
+   1  2 	1 	0.40 	30000 	
+   1  3 	1 	0.40 	30000 	
+   2  3 	1 	0.40 	30000 	
+#endif
+   1  4 	1 	0.35 	1250 	
+   4  5 	1 	0.47 	1250 	
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  6 	1 	0.37 	1250 	
+   5  7 	1 	0.47 	1250 	
+   7  8 	1 	0.47 	1250 	
+   8  9 	1 	0.47 	1250 	
+   9 10 	1 	0.47 	1250 	
+  10 11 	1 	0.47 	1250 	
+   6 12 	1 	0.47 	1250 	
+  12 13 	1 	0.47 	1250 	
+  13 14 	1 	0.47 	1250 	
+  14 15 	1 	0.47 	1250 	
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+   3  1  4 	2 	133.0 	100.0 	; Not used in the other PIPs
+   2  1  4 	2 	100.0 	70.0 	; Not used in the other PIPs
+; Orient Head
+   1  4  5 	2 	140.0 	30.0 	; link to lipid
+   4  5  6 	2 	120.0 	25.0 	; These are part of the default lipids rules
+   4  5  7 	2 	180.0 	25.0 	; These are part of the default lipids rules
+; Tail part (uses standar Martini v2.0 tail rules)
+   5  7  8 	2 	180.0 	25.0 	
+   7  8  9 	2 	100.0 	10.0 	
+   8  9 10 	2 	100.0 	10.0 	
+   9 10 11 	2 	120.0 	45.0 	
+   6 12 13 	2 	180.0 	25.0 	
+  12 13 14 	2 	180.0 	25.0 	
+  13 14 15 	2 	180.0 	25.0 	
+
+[dihedrals]
+;  i  j  k  l 	funct 	angle 	force.c.
+; 3  1  4  5  1  -30.0  5.0  1 ; Removed as it was unstable - WARNING has not been tested
+
+[constraints]
+;  i  j  k 	funct 	length
+#ifndef FLEXIBLE
+; Using constraints not bonds
+   1  2 	1 	0.40 	
+   1  3 	1 	0.40 	
+   2  3 	1 	0.40 	
+#endif
