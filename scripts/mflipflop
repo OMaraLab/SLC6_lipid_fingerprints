@@ -5,7 +5,11 @@ import os
 import argparse
 import warnings
 
-PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+# informative warning message for installing
+# packages. Cython and numpy are checked and installed first because
+# MDAnalysis needs them.
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@slc6-transporters#egg=mdanalysis&subdirectory=package"
 
 try:
     import numpy as np
@@ -22,7 +26,6 @@ try:
 except ImportError:
     raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
 
-
 try:
     import MDAnalysis as mda
 except ImportError:
@@ -36,10 +39,11 @@ except ImportError:
 from MDAnalysis.analysis.leaflets.leafletfinder import LeafletFinder
 
 
-# shut up
+# MDA has too many warnings, especially for CG beads!!
 warnings.filterwarnings('ignore', message='Failed to guess the mass')
 
-parser = argparse.ArgumentParser(description='Calculate area per lipid.',
+# set up interface
+parser = argparse.ArgumentParser(description='Calculate lipid flip-flop.',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('topology', help='TPR or GRO or PDB file')
 parser.add_argument('trajectory', help='XTC or TRR file')
@@ -102,6 +106,7 @@ if __name__ == '__main__':
     step = args.skip if not args.skip else int(args.skip)
     lff.run(start=start, stop=stop, step=step)
 
+    # save data in human-readable format
     df = pd.DataFrame({"Flips": lff.flips_by_attr,
                        "Flops": lff.flops_by_attr,
                        "Translocations": lff.translocations_by_attr,

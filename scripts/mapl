@@ -5,7 +5,11 @@ import os
 import argparse
 import warnings
 
-PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+# informative warning message for installing
+# packages. Cython and numpy are checked and installed first because
+# MDAnalysis needs them.
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@slc6-transporters#egg=mdanalysis&subdirectory=package"
 
 try:
     import numpy as np
@@ -22,7 +26,6 @@ try:
 except ImportError:
     raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
 
-
 try:
     import MDAnalysis as mda
 except ImportError:
@@ -36,9 +39,10 @@ except ImportError:
 from MDAnalysis.analysis.leaflets.leafletfinder import LeafletFinder
 
 
-# shut up
+# MDA has too many warnings, especially for CG beads!!
 warnings.filterwarnings('ignore', message='Failed to guess the mass')
 
+# set up interface
 parser = argparse.ArgumentParser(description='Calculate area per lipid.',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('topology', help='TPR or GRO or PDB file')
@@ -80,6 +84,8 @@ parser.add_argument('-e', '--end', default=None, help='frame to end at')
 parser.add_argument('-skip', default=1, help='compute every nth frame')
 parser.add_argument('--verbose', action='store_true', help='verbose')
 
+# in case we want to class by unsaturation / headgroup
+# see mdei script for example of using lipid classes
 from MDAnalysis.core.topologyattrs import ResidueAttr
 
 class LipidClass(ResidueAttr):
@@ -123,7 +129,6 @@ if __name__ == '__main__':
         name += "_res"
 
 
-    
     headgroups = 'name ' + ' '.join(args.headgroups)
     headgroups += f" and {lipid_sel}"
     lf_headgroups = 'name ' + ' '.join(args.leaflet_headgroups)
@@ -141,6 +146,7 @@ if __name__ == '__main__':
     apl.run(start=start, stop=stop, step=step)
     name += f"_{apl.frames[0]:04d}-{apl.frames[-1]:04d}"
     
+    # save data in human-readable format
     leaflets = ["Extracellular", "Intracellular"]
     AREA = r"Area ($\AA^2$)"
     df_dct = {"Leaflet": [], "Lipid": [], AREA: []}

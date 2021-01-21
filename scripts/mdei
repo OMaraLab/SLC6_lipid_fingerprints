@@ -10,7 +10,11 @@ import warnings
 #      "resname *PI PAP1 PAP2 PAP3" "resname CHOL" \
 #      -verbose GlyT2-CG_neuronal1.01.tpr GlyT2_neuronal_run${rep}.xtc -skip 10
 
-PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+# informative warning message for installing
+# packages. Cython and numpy are checked and installed first because
+# MDAnalysis needs them.
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@slc6-transporters#egg=mdanalysis&subdirectory=package"
 
 try:
     import numpy as np
@@ -26,7 +30,6 @@ try:
     import pandas as pd
 except ImportError:
     raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
-
 
 try:
     import MDAnalysis as mda
@@ -45,9 +48,10 @@ try:
 except ImportError:
     raise ImportError('Install scikit-learn with `conda install scikit-learn`')
 
-# shut up
+# MDA has too many warnings, especially for CG beads!!
 warnings.filterwarnings('ignore', message='Failed to guess the mass')
 
+# set up interface
 parser = argparse.ArgumentParser(description='Calculate lipid depletion-enrichment index.',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('topology', help='TPR or GRO or PDB file')
@@ -89,6 +93,8 @@ parser.add_argument('-e', '--end', default=None, help='frame to end at')
 parser.add_argument('-skip', default=1, help='compute every nth frame')
 parser.add_argument('--verbose', action='store_true', help='verbose')
 
+# in case we want to class by unsaturation / headgroup
+# see mdei script for example of using lipid classes
 from MDAnalysis.core.topologyattrs import ResidueAttr
 
 class LipidClass(ResidueAttr):
@@ -104,7 +110,6 @@ def create_topattr(u, group_names, group_sels):
     u.add_TopologyAttr("lipidclasses")
     u.residues.lipidclasses = "Other"
     for name, sel in zip(group_names, selections):
-        print(name, np.unique(sel.residues.resnames))
         sel.residues.lipidclasses = name
 
 
@@ -159,6 +164,7 @@ if __name__ == '__main__':
     step = args.skip if not args.skip else int(args.skip)
     le.run(start=start, stop=stop, step=step)
     
+    # save data in human-readable format
     df = le.summary_as_dataframe()
     fn = name+'_summary.csv'
     df.to_csv(fn)
