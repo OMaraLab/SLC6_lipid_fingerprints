@@ -1,0 +1,177 @@
+#!/usr/bin/env python
+
+import sys
+import os
+import argparse
+import warnings
+
+# e.g. dei --distribution gaussian --cutoff 6 --buffer 2 --groupnames PC PE SM PS GS PI CHOL \
+#      --groups "resname *PC" "resname *PE" "resname *SM" "resname *PS" "resname DPG* *GS" \
+#      "resname *PI PAP1 PAP2 PAP3" "resname CHOL" \
+#      -verbose GlyT2-CG_neuronal1.01.tpr GlyT2_neuronal_run${rep}.xtc -skip 10
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+
+try:
+    import numpy as np
+except ImportError:
+    raise ImportError('Install numpy with `conda install -c conda-forge numpy`')
+
+try:
+    import cython
+except ImportError:
+    raise ImportError('Install cython with `conda install -c conda-forge cython`')
+
+try:
+    import pandas as pd
+except ImportError:
+    raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
+
+
+try:
+    import MDAnalysis as mda
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+try:
+    from MDAnalysis.analysis.leaflets.enrichment import LipidEnrichment
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+from MDAnalysis.analysis.leaflets.leafletfinder import LeafletFinder
+
+try:
+    import sklearn
+except ImportError:
+    raise ImportError('Install scikit-learn with `conda install scikit-learn`')
+
+# shut up
+warnings.filterwarnings('ignore', message='Failed to guess the mass')
+
+parser = argparse.ArgumentParser(description='Calculate lipid depletion-enrichment index.',
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('topology', help='TPR or GRO or PDB file')
+parser.add_argument('trajectory', help='XTC or TRR file')
+parser.add_argument('--protein', default='protein', help='selection string for protein')
+parser.add_argument('--lipids', default=['*PC', '*PE', '*PI', '*PA', 'DPG*', 'PIP*', 'PAP*'], 
+                    nargs='+', 
+                    help=('names of lipids to analyse, separated by space. '
+                          'Accepts wildcards. e.g. --lipids P*PC CHOL'))
+parser.add_argument('--headgroups', default=['PO4', 'GL1', 'ROH', 'GL2', 'AM1', 'AM2', 'NC3', 'GM1', 'C3'],
+                    nargs='+', help=('names of headgroups, separated by space.'
+                                     'Used for DEI. '
+                                     'Try for groups in the center/top of the lipid.'
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--leaflet_headgroups', default=['PO4', 'GL1', 'ROH', 'GL2', 'AM1', 'AM2', 'NC3', 'GM*', 'C3'],
+                    nargs='+', help=('names of headgroups, separated by space. '
+                                     'Used by leafletfinder algorithm. '
+                                     'The more the merrier. Aim for the top of the lipid. '
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--distribution', default='binomial', type=str,
+                    help='probability distribution applied')
+parser.add_argument('--cutoff', default=6, type=float,
+                    help='cutoff in ångström')
+parser.add_argument('--leaflet_cutoff', default=20, type=float,
+                    help='leaflet finder cutoff in ångström')
+parser.add_argument('--leaflet_method', default="spectralclustering", type=str,
+                    help='leaflet finder method ("spectralclustering", "graph")')
+parser.add_argument('--buffer', default=0, type=float,
+                    help='buffer in ångström')
+parser.add_argument('--compute_headgroup_only', default=True, type=bool,
+                    help="compute distances with headgroups only")
+parser.add_argument('--delta', default=6, help='delta')
+parser.add_argument('--groups', default=None, type=str, nargs='*', help="residue names of groups")
+parser.add_argument('--groupnames', default=None, type=str, nargs='*', help="group names")
+parser.add_argument('-b', '--begin', default=None, help='frame to begin at')
+parser.add_argument('-e', '--end', default=None, help='frame to end at')
+parser.add_argument('-skip', default=1, help='compute every nth frame')
+parser.add_argument('--verbose', action='store_true', help='verbose')
+
+from MDAnalysis.core.topologyattrs import ResidueAttr
+
+class LipidClass(ResidueAttr):
+    attrname = "lipidclasses"
+    singular = "lipidclass"
+
+    @staticmethod
+    def _gen_initial_values(na, nr, ns):
+        return np.array(['' for _ in range(nr)], dtype=object)
+
+def create_topattr(u, group_names, group_sels):
+    selections = [u.select_atoms(s) for s in sels]
+    u.add_TopologyAttr("lipidclasses")
+    u.residues.lipidclasses = "Other"
+    for name, sel in zip(group_names, selections):
+        print(name, np.unique(sel.residues.resnames))
+        sel.residues.lipidclasses = name
+
+
+if __name__ == '__main__':
+    args = parser.parse_args(sys.argv[1:])
+    u = mda.Universe(args.topology, args.trajectory)
+
+    lipid_sel = "not protein and not resname PW and not resname HOH and not resname ION"
+    if len(args.lipids):
+        lipid_sel += ' and resname ' + ' '.join(args.lipids)
+    name, _ = os.path.splitext(os.path.basename(args.trajectory))
+    name = f'{name}_{args.distribution}_cutoff={args.cutoff}_buffer={args.buffer}'
+
+    # add topologyattr?
+    if args.groups:
+        sels = args.groups
+        if len(args.groupnames) != len(sels):
+            raise ValueError("group names must be list of names same length as group selections")
+        
+        create_topattr(u, args.groupnames, sels)
+        tattr = "lipidclasses"
+
+        name += "_grouped"
+    
+    else:
+        tattr = "resnames"
+        name += "_res"
+
+
+    
+    headgroups = 'name ' + ' '.join(args.headgroups)
+    headgroups += f" and {lipid_sel}"
+    lf_headgroups = 'name ' + ' '.join(args.leaflet_headgroups)
+    lfinder = LeafletFinder(u, select=lf_headgroups,
+                            cutoff=args.leaflet_cutoff,
+                            delta=args.delta,
+                            pbc=True, method=args.leaflet_method,
+                            n_leaflets=2)
+    le = LipidEnrichment(u, select_protein=args.protein, 
+                         select=headgroups,
+                        #  select_headgroup=headgroups,
+                        #  select_leaflet=lf_headgroups,
+                         n_leaflets=args.n_leaflets,
+                         count_by_attr=tattr,
+                         leafletfinder=lfinder,
+                         cutoff=args.cutoff, buffer=args.buffer,
+                         distribution=args.distribution,
+                         compute_headgroup_only=args.compute_headgroup_only,
+                         verbose=args.verbose)
+    start = args.begin if not args.begin else int(args.begin)
+    stop = args.end if not args.end else int(args.end)
+    step = args.skip if not args.skip else int(args.skip)
+    le.run(start=start, stop=stop, step=step)
+    
+    df = le.summary_as_dataframe()
+    fn = name+'_summary.csv'
+    df.to_csv(fn)
+    print(f'Wrote {fn}')
+    for i, lf in enumerate(le.leaflets, 1):
+        dct2 = {}
+        for k, kdct in lf.items():
+            if not np.any(kdct['Total number']): print(f"No {k} found") # continue
+            for k2, v in kdct.items():
+                dct2[f'{k}.{k2}'.replace(' ', '_')] = v
+        idf = pd.DataFrame(dct2)
+        idf['Time (ps)'] = le.times
+        fn2 = f'{name}_leaflet{i}.csv'
+        idf.to_csv(fn2)
+        print(f'Wrote {fn2}')
+    print('Done. ᕕ(⌐■_■)ᕗ ♪♬')

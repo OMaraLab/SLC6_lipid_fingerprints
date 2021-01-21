@@ -1,0 +1,18 @@
+#include "martini.ff/martini_v2.2P.itp"
+#include "martini.ff/martini_v2.0_ions.itp"
+#include "martini.ff/martini_v2.0_brain_complex_b5-GMs_old.itp"
+#include "martini.ff/hSERT_A.itp"
+[ system ]
+; name
+Protein in INSANE! Membrane UpperLeaflet>CHOL:POPC=0.2:0.8 LowerLeaflet>CHOL:POPC=0.2:0.8
+
+[ molecules ]
+; name  number
+hSERT_A          1
+CHOL            97
+POPC           391
+CHOL            98
+POPC           392
+PW          32322
+NA+               465
+CL-               468

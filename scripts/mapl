@@ -1,0 +1,168 @@
+#!/usr/bin/env python
+
+import sys
+import os
+import argparse
+import warnings
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+
+try:
+    import numpy as np
+except ImportError:
+    raise ImportError('Install numpy with `conda install -c conda-forge numpy`')
+
+try:
+    import cython
+except ImportError:
+    raise ImportError('Install cython with `conda install -c conda-forge cython`')
+
+try:
+    import pandas as pd
+except ImportError:
+    raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
+
+
+try:
+    import MDAnalysis as mda
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+try:
+    from MDAnalysis.analysis.leaflets.apl import AreaPerLipid
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+from MDAnalysis.analysis.leaflets.leafletfinder import LeafletFinder
+
+
+# shut up
+warnings.filterwarnings('ignore', message='Failed to guess the mass')
+
+parser = argparse.ArgumentParser(description='Calculate area per lipid.',
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('topology', help='TPR or GRO or PDB file')
+parser.add_argument('trajectory', help='XTC or TRR file')
+parser.add_argument('--lipids', default=['*PC', '*PE', '*PI', '*PA', 'DPG*', 'PIP*', 'PAP*'], 
+                    nargs='+', 
+                    help=('names of lipids to analyse, separated by space. '
+                          'Accepts wildcards. e.g. --lipids P*PC CHOL'))
+parser.add_argument('--headgroups', default=['PO4', 'GL1', 'ROH', 'GL2', 'AM1', 'AM2', 'NC3', 'GM1', 'C3'],
+                    nargs='+', help=('names of headgroups, separated by space.'
+                                     'Used for projection onto plane for calculating APL. '
+                                     'Try for groups in the center/top of the lipid.'
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--leaflet_headgroups', default=['PO4', 'GL1', 'ROH', 'GL2', 'AM1', 'AM2', 'NC3', 'GM*', 'C3'],
+                    nargs='+', help=('names of headgroups, separated by space. '
+                                     'Used by leafletfinder algorithm. '
+                                     'The more the merrier. Aim for the top of the lipid. '
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--cutoff', default=50, type=float,
+                    help='cutoff in ångström for finding neighbors')
+parser.add_argument('--max_neighbors', default=100, type=int,
+                    help='maximum neighbors calculating APL')
+parser.add_argument('--leaflet_cutoff', default=20, type=float,
+                    help='leaflet finder cutoff in ångström')
+parser.add_argument('--select_other', default="not resname PW ION",
+                    help=("non-lipid molecules that should be considered in "
+                          "the APL calculation. For CG, I recommend 'not resname PW ION'. "
+                          "for AA, I recommend something like 'not resname SOL HOH NA CL'"))
+parser.add_argument('--leaflet_method', default="spectralclustering", type=str,
+                    help='leaflet finder method ("spectralclustering", "graph", "orientation")')
+
+parser.add_argument('--delta', default=6, help='delta. Used only for spectralclustering')
+parser.add_argument('--groups', default=None, type=str, nargs='*', help="residue names of groups")
+parser.add_argument('--groupnames', default=None, type=str, nargs='*', help="group names")
+parser.add_argument('-b', '--begin', default=None, help='frame to begin at')
+parser.add_argument('-e', '--end', default=None, help='frame to end at')
+parser.add_argument('-skip', default=1, help='compute every nth frame')
+parser.add_argument('--verbose', action='store_true', help='verbose')
+
+from MDAnalysis.core.topologyattrs import ResidueAttr
+
+class LipidClass(ResidueAttr):
+    attrname = "lipidclasses"
+    singular = "lipidclass"
+
+    @staticmethod
+    def _gen_initial_values(na, nr, ns):
+        return np.array(['' for _ in range(nr)], dtype=object)
+
+def create_topattr(u, group_names, group_sels):
+    selections = [u.select_atoms(s) for s in sels]
+    u.add_TopologyAttr("lipidclasses")
+    u.residues.lipidclasses = "Other"
+    for name, sel in zip(group_names, selections):
+        sel.residues.lipidclasses = name
+
+
+if __name__ == '__main__':
+    args = parser.parse_args(sys.argv[1:])
+    u = mda.Universe(args.topology, args.trajectory)
+
+    lipid_sel = "not protein and not resname PW and not resname HOH and not resname ION"
+    if len(args.lipids):
+        lipid_sel += ' and resname ' + ' '.join(args.lipids)
+    name, _ = os.path.splitext(os.path.basename(args.trajectory))
+
+    # add topologyattr?
+    if args.groups:
+        sels = args.groups
+        if len(args.groupnames) != len(sels):
+            raise ValueError("group names must be list of names same length as group selections")
+        
+        create_topattr(u, args.groupnames, sels)
+        tattr = "lipidclasses"
+
+        name += "_grouped"
+    
+    else:
+        tattr = "resnames"
+        name += "_res"
+
+
+    
+    headgroups = 'name ' + ' '.join(args.headgroups)
+    headgroups += f" and {lipid_sel}"
+    lf_headgroups = 'name ' + ' '.join(args.leaflet_headgroups)
+    lfinder = LeafletFinder(u, select=lf_headgroups,
+                            cutoff=args.leaflet_cutoff,
+                            delta=args.delta,
+                            pbc=True, method=args.leaflet_method,
+                            n_leaflets=2)
+    apl = AreaPerLipid(u, select=headgroups, leafletfinder=lfinder,
+                       max_neighbors=args.max_neighbors, select_other=args.select_other,
+                       cutoff=args.cutoff, verbose=args.verbose)
+    start = args.begin if not args.begin else int(args.begin)
+    stop = args.end if not args.end else int(args.end)
+    step = args.skip if not args.skip else int(args.skip)
+    apl.run(start=start, stop=stop, step=step)
+    name += f"_{apl.frames[0]:04d}-{apl.frames[-1]:04d}"
+    
+    leaflets = ["Extracellular", "Intracellular"]
+    AREA = r"Area ($\AA^2$)"
+    df_dct = {"Leaflet": [], "Lipid": [], AREA: []}
+    for j, dct in enumerate(apl.areas_by_attr):
+        for k, v in dct.items():
+            n = len(v)
+            df_dct["Leaflet"].extend([leaflets[j]]*n)
+            df_dct["Lipid"].extend([k]*n)
+            df_dct[AREA].extend(v)
+    
+    df = pd.DataFrame(df_dct)
+
+    fn = f"{name}_apl_all.csv"
+    df.to_csv(fn)
+    print(f"Wrote {fn}")
+
+    mean = df.groupby(["Leaflet", "Lipid"]).mean()
+    mean.rename({AREA: r"Mean ($\AA^2$)"}, inplace=True)
+    std = df.groupby(["Leaflet", "Lipid"]).std()
+    mean[r"StDev ($\AA^2$)"] = std[AREA]
+
+    fn = f"{name}_apl_summary.csv"
+    mean.to_csv(fn)
+    print(f"Wrote {fn}")
+    print('Done. ᕕ(⌐■_■)ᕗ ♪♬')

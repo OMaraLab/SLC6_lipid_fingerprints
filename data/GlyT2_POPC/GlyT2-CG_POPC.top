@@ -1,0 +1,23 @@
+#include "martini.ff/martini_v2.2P.itp"
+#include "martini.ff/martini_v2.0_ions.itp"
+#include "martini.ff/martini_v2.0_brain_complex_b5-GMs_old.itp"
+#include "martini.ff/GlyT2-CG.itp"
+#include "martini.ff/glycine-CG.itp"
+
+
+[ system ]
+; name
+Protein in INSANE! Membrane UpperLeaflet>CHOL:POPC=0.2:0.8 LowerLeaflet>CHOL:POPC=0.2:0.8
+
+[ molecules ]
+; name  number
+GlyT2-CG         1
+glycine		 1
+Na+		 3
+CHOL            97
+POPC           390
+CHOL            98
+POPC           394
+PW          32339
+NA+               465
+CL-               471

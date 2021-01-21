@@ -1,0 +1,116 @@
+#!/usr/bin/env python
+
+import sys
+import os
+import argparse
+import warnings
+
+PATH = "git+https://github.com/lilyminium/mdanalysis@leaflet-methods#egg=mdanalysis&subdirectory=package"
+
+try:
+    import numpy as np
+except ImportError:
+    raise ImportError('Install numpy with `conda install -c conda-forge numpy`')
+
+try:
+    import cython
+except ImportError:
+    raise ImportError('Install cython with `conda install -c conda-forge cython`')
+
+try:
+    import pandas as pd
+except ImportError:
+    raise ImportError('Install pandas with `conda install -c conda-forge pandas`')
+
+
+try:
+    import MDAnalysis as mda
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+try:
+    from MDAnalysis.analysis.leaflets.flipflop import LipidFlipFlop
+except ImportError:
+    raise ImportError(f'Install mdanalysis with `pip install -e "{PATH}"`')
+
+from MDAnalysis.analysis.leaflets.leafletfinder import LeafletFinder
+
+
+# shut up
+warnings.filterwarnings('ignore', message='Failed to guess the mass')
+
+parser = argparse.ArgumentParser(description='Calculate area per lipid.',
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('topology', help='TPR or GRO or PDB file')
+parser.add_argument('trajectory', help='XTC or TRR file')
+parser.add_argument('--lipids', default=['CHOL'], 
+                    nargs='+', 
+                    help=('names of lipids to analyse, separated by space. '
+                          'Accepts wildcards. e.g. --lipids P*PC CHOL'))
+parser.add_argument('--headgroups', default=['ROH'],
+                    nargs='+', help=('names of headgroups, separated by space.'
+                                     'Used for projection onto plane for calculating APL. '
+                                     'Try for groups in the center/top of the lipid.'
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--leaflet_headgroups', default=['PO4', 'GL1', 'ROH', 'GL2', 'AM1', 'AM2', 'NC3', 'GM*', 'C3'],
+                    nargs='+', help=('names of headgroups, separated by space. '
+                                     'Used by leafletfinder algorithm. '
+                                     'The more the merrier. Aim for the top of the lipid. '
+                                     'Accepts wildcards. e.g. '
+                                     '--headgroups ROH GL1 P*'))
+parser.add_argument('--cutoff', default=50, type=float,
+                    help='cutoff in ångström for finding neighbors')
+parser.add_argument('--angle_threshold', default=0.6, type=float,
+                    help='angle threshold for leaflet clustering')
+parser.add_argument('--leaflet_cutoff', default=60, type=float,
+                    help='leaflet finder cutoff in ångström')
+parser.add_argument('--buffer_zone', default=8, type=float,
+                    help="Distance from center considered the interstitial zone.")
+parser.add_argument('--leaflet_method', default="spectralclustering", type=str,
+                    help='leaflet finder method ("spectralclustering", "graph", "orientation")')
+
+parser.add_argument('--delta', default=20, help='delta. Used only for spectralclustering')
+parser.add_argument('-b', '--begin', default=None, help='frame to begin at')
+parser.add_argument('-e', '--end', default=None, help='frame to end at')
+parser.add_argument('-skip', default=1, help='compute every nth frame')
+parser.add_argument('--verbose', action='store_true', help='verbose')
+
+if __name__ == '__main__':
+    args = parser.parse_args(sys.argv[1:])
+    u = mda.Universe(args.topology, args.trajectory)
+
+    lipid_sel = "not protein and not resname PW and not resname HOH and not resname ION"
+    if len(args.lipids):
+        lipid_sel += ' and resname ' + ' '.join(args.lipids)
+    name, _ = os.path.splitext(os.path.basename(args.trajectory))
+    tattr = "resnames"
+    name += "_res"
+    
+    headgroups = 'name ' + ' '.join(args.headgroups) + " and " + lipid_sel
+    lf_headgroups = 'name ' + ' '.join(args.leaflet_headgroups)
+    lfinder = LeafletFinder(u, select=lf_headgroups,
+                            cutoff=args.leaflet_cutoff,
+                            delta=args.delta,
+                            angle_threshold=args.angle_threshold,
+                            pbc=True, method=args.leaflet_method,
+                            n_leaflets=2)
+    lff = LipidFlipFlop(u, select=headgroups, leafletfinder=lfinder,
+                        cutoff=args.cutoff, verbose=args.verbose)
+    start = args.begin if not args.begin else int(args.begin)
+    stop = args.end if not args.end else int(args.end)
+    step = args.skip if not args.skip else int(args.skip)
+    lff.run(start=start, stop=stop, step=step)
+
+    df = pd.DataFrame({"Flips": lff.flips_by_attr,
+                       "Flops": lff.flops_by_attr,
+                       "Translocations": lff.translocations_by_attr,
+                       "Flips with buffer": lff.flip_sections_by_attr,
+                       "Flops with buffer": lff.flop_sections_by_attr,
+                       "Translocations with buffer": lff.trans_sections_by_attr,
+                       })
+
+    fn = f"{name}_flipflops.csv"
+    df.to_csv(fn)
+    print(f"Wrote {fn}")
+    print('Done. ᕕ(⌐■_■)ᕗ ♪♬')

@@ -1,0 +1,18 @@
+#include "martini.ff/martini_v2.2P.itp"
+#include "martini.ff/martini_v2.0_ions.itp"
+#include "martini.ff/dDAT_A.itp"
+#include "martini.ff/martini_v2.0_brain_complex_b5-GMs_old.itp"
+[ system ]
+; name
+Protein in INSANE! Membrane UpperLeaflet>CHOL:POPC=20.0:80.0 LowerLeaflet>CHOL:POPC=20.0:80.0
+
+[ molecules ]
+; name  number
+dDAT_A           1
+CHOL            97
+POPC           391
+CHOL            99
+POPC           396
+PW          32339
+NA+               465
+CL-               465
