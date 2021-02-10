@@ -1,0 +1,26 @@
+#include "martini.ff/martini_v2.2P.itp"
+#include "martini.ff/martini_v2.0_ions.itp"
+#define RUBBER_BANDS
+
+#include "Protein.itp"
+
+;#include "martini.ff/martini_v2.0_lipids_all_201506.itp"
+
+#include "martini.ff/martini_v2.0_brain_complex_b5-GMs_old.itp"
+
+#include "martini.ff/martini_v2_PI-lipids.itp"
+
+[ system ]
+; name
+Protein in INSANE! Membrane
+
+[ molecules ]
+; name  number
+Protein        1
+CHOL           127
+POPC           510
+CHOL           127
+POPC           511
+PW          34075
+NA+              510
+CL-              506

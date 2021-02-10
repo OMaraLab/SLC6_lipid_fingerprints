@@ -1,0 +1,107 @@
+#include "martini.ff/martini_v2.2P.itp"
+#include "martini.ff/martini_v2.0_ions.itp"
+#define RUBBER_BANDS
+
+#include "Protein.itp"
+
+;#include "martini.ff/martini_v2.0_lipids_all_201506.itp"
+
+#include "martini.ff/martini_v2.0_brain_complex_b5-GMs_old.itp"
+
+#include "martini.ff/martini_v2_PI-lipids.itp"
+
+[ system ]
+; name
+Protein in INSANE! Membrane
+
+[ molecules ]
+; name  number
+Protein        1
+CHOL           282
+POPC            55
+DPSM            36
+DPPC            33
+PUPE            31
+DPGS            31
+PAPC            29
+PAPE            19
+DOPC            13
+PUPC            10
+POPE             8
+PNSM             8
+PBSM             6
+PNGS             6
+DPG1             5
+DPG3             5
+DBGS             5
+OAPE             4
+OUPE             4
+POSM             4
+PFPC             3
+OIPC             3
+POGS             3
+OUPC             2
+DPCE             2
+PADG             1
+DBG1             1
+PNG1             1
+DBG3             1
+PNG3             1
+PPC              1
+OIPE             0
+POG1             0
+POG3             0
+DBCE             0
+PNCE             0
+IPC              0
+PPE              0
+IPE              0
+PODG             0
+CHOL           286
+PUPE            62
+PAPE            39
+POPC            31
+PUPS            21
+DPPC            19
+PAPS            17
+PAPC            16
+POPE            16
+POPS            16
+PUPI            12
+DPSM             9
+OUPE             8
+OAPE             8
+POPI             8
+PAPI             8
+DOPC             7
+PUPC             6
+OUPS             4
+DPPS             3
+PIPI             3
+DPCE             2
+PFPC             1
+OIPC             1
+OIPE             1
+PNSM             1
+PBSM             1
+PAPA             1
+PAP1             1
+PAP2             1
+PAP3             1
+PADG             1
+OUPC             1
+POSM             1
+POP1             1
+POP2             1
+POP3             1
+IPE              1
+POPA             0
+DBCE             0
+PNCE             0
+PPC              0
+IPC              0
+PPE              0
+PODG             0
+PW          33512
+NA+              640
+CL-              506
