@@ -19,7 +19,7 @@ and lipid flop-flop (mflipflop) are in the scripts folder.
 [Wilson, K. A.; Wang, L.; Lin, Y. C.; O’Mara, M. L. *Investigating the Lipid Fingerprint of SLC6 Neurotransmitter Transporters: A Comparison of DDAT, HDAT, HSERT, and GlyT2.* BBA Advances 2021, 1, 100010. https://doi.org/10.1016/j.bbadva.2021.100010.](https://doi.org/10.1016/j.bbadva.2021.100010)
 
 
-Please see the [slc6-transporters](https://github.com/lilyminium/mdanalysis/tree/slc6-transporters/package/MDAnalysis/analysis/leaflets) branch of Lily Wang's MDAnalysis repository
+Please see the [lipyds package](https://github.com/lilyminium/lipyds) package
 for the actual implementation of each analyses.
 
 All material is provided under an MIT license. Please cite the above references
